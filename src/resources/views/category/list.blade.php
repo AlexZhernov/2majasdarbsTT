@@ -7,18 +7,18 @@
  <thead class="thead-light">
  <tr>
  <th>ID</td>
-<th>Vārds</td>
+<th>Nosaukums</td>
 <th>&nbsp;</td>
  </tr>
  </thead>
  <tbody>
- @foreach($items as $author)
+ @foreach($items as $category)
  <tr>
- <td>{{ $author->id }}</td>
- <td>{{ $author->name }}</td>
+ <td>{{ $category->id }}</td>
+ <td>{{ $category->name }}</td>
  <td>
- <a href="/authors/update/{{ $author->id }}" class="btn btn-outline-primary btnsm">Labot</a> /
- <form action="/authors/delete/{{ $author->id }}" method="post" class="deletion-form d-inline">
+ <a href="/categories/update/{{ $category->id }}" class="btn btn-outline-primary btnsm">Labot</a> /
+ <form action="/categories/delete/{{ $category->id }}" method="post" class="deletion-form d-inline">
  @csrf
  <button type="submit" class="btn btn-outline-danger btn-sm">Dzēst</button>
 </form>
@@ -30,6 +30,6 @@
  @else
  <p>Nav atrasts neviens ieraksts</p>
  @endif
- <a href="/authors/create" class="btn btn-primary">Izveidot jaunu</a>
+ <a href="/categories/create" class="btn btn-primary">Izveidot jaunu</a>
 @endsection
 

@@ -38,6 +38,9 @@ eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="a
                                 <li class="nav-item">
                                     <a class="nav-link" href="/">Sākumlapa</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/categories">Kategorijas</a>
+                                </li>
                                 @else
                                 <li class="nav-item">
                                     <a class="nav-link" href="/login">Pieslēgties</a>

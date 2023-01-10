@@ -12,7 +12,7 @@ class CategoryController extends Controller
      $this->middleware('auth');
     }
     
-    // display all authors
+
     public function list()
     {
         $items = Category::orderBy('name', 'asc')->get();
@@ -30,7 +30,7 @@ class CategoryController extends Controller
         return view(
             'category.form',
             [
-                'title' => 'Pievienot autoru',
+                'title' => 'Pievienot kategoriju',
                 'category' => new Category()
             ]
         );
@@ -64,7 +64,7 @@ class CategoryController extends Controller
         return view(
             'category.form',
             [
-                'title' => 'Rediģēt autoru',
+                'title' => 'Rediģēt kategoriju',
                 'category' => $category
             ]
         );
