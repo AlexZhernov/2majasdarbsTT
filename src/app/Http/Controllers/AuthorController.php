@@ -7,6 +7,11 @@ use App\Models\Author;
 
 class AuthorController extends Controller
 {
+    public function __construct()
+    {
+     $this->middleware('auth');
+    }
+    
     // display all authors
     public function list()
     {
@@ -34,13 +39,24 @@ class AuthorController extends Controller
 
     public function put(Request $request)
     {
+        $author = new Author();
+        $this->saveAuthorData($author, $request);
+        return redirect('/authors');
+    }
+
+    public function patch(Author $author, Request $request)
+    {
+        $this->saveAuthorData($author, $request);
+        return redirect('/authors');
+    }
+
+    private function saveAuthorData(Author $author, Request $request)
+    {
         $validatedData = $request->validate([
             'name' => 'required',
         ]);
-        $author = new Author();
         $author->name = $validatedData['name'];
         $author->save();
-        return redirect('/authors');
     }
 
     public function update(Author $author)
@@ -54,15 +70,7 @@ class AuthorController extends Controller
         );
     }
 
-    public function patch(Author $author, Request $request)
-    {
-        $validatedData = $request->validate([
-            'name' => 'required',
-        ]);
-        $author->name = $validatedData['name'];
-        $author->save();
-        return redirect('/authors');
-    }
+
 
     public function delete(Author $author)
     {
